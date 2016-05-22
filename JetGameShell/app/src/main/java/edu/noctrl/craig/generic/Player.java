@@ -6,11 +6,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.deitel.cannongame.JetGameFragment;
+import com.deitel.cannongame.JetGameView;
+
 /**
- * Created by mobze on 5/21/2016.
+ * Matthew OBzera
  */
 public class Player extends GameSprite {
 
@@ -19,9 +23,9 @@ public class Player extends GameSprite {
 
     public Player(World theWorld) {
         super(theWorld);
-        this.speed = 100;
-        this.baseVelocity = new Point3F(1,1,0);
-        this.updateVelocity();
+        this.speed = 200;
+        this.position.X = 128;
+        this.position.Y = theWorld.TARGET_HEIGHT/2;
     }
 
     @Override
@@ -31,7 +35,7 @@ public class Player extends GameSprite {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(2,2,2);
+        return new Point3F(1,1,1);
     }
 
     @Override
