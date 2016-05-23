@@ -5,14 +5,12 @@ import android.view.View;
 
 import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
-
-//Matthew OBzera
 
 public class Stage extends World {
 
     private Player player;
-    public static Timer timer;
+    public static Timer spawnTimer;
+    protected static GameTimer gameTimer;
     public Stage(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
         player = new Player(this);
@@ -21,9 +19,9 @@ public class Stage extends World {
 
     @Override
     protected void initialize(){
-        timer = new Timer();
-        int delay = (5 + new Random().nextInt(5)) * 10;
-        timer.schedule(new SpawnTimer(this),delay);
+        spawnTimer = new Timer();
+        spawnTimer.schedule(new Spawner(this), 3000);
+        gameTimer = new GameTimer(10.0);
     }
 
     @Override

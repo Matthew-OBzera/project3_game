@@ -6,11 +6,11 @@ import java.util.TimerTask;
 /**
  * Created by mobze on 5/22/2016.
  */
-public class SpawnTimer extends TimerTask {
+public class Spawner extends TimerTask {
 
     World world;
 
-    public SpawnTimer(World world)
+    public Spawner(World world)
     {
         this.world = world;
     }
@@ -23,6 +23,6 @@ public class SpawnTimer extends TimerTask {
         enemy.position.Y = (int)(Math.random()*(world.height-64));
         world.addObject(enemy);
         int delay = 500 + (int)(Math.random() * 1500);
-        Stage.timer.schedule(new SpawnTimer(world), delay);
+        Stage.spawnTimer.schedule(new Spawner(world), delay);
     }
 }
