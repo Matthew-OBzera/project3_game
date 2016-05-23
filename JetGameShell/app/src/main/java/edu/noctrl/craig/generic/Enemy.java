@@ -9,6 +9,7 @@ import android.graphics.Rect;
 public class Enemy extends GameSprite {
 
     protected int health;
+    protected double timeToAdd;
 
     public Enemy(World theWorld) {
         super(theWorld);
@@ -24,6 +25,7 @@ public class Enemy extends GameSprite {
         PlayerBullet bullet = (PlayerBullet) other;
         this.health -= bullet.damage;
         bullet.kill();
+
         /*if(bullet.penetration > 0)
         {
             bullet.penetration--;
@@ -36,6 +38,7 @@ public class Enemy extends GameSprite {
         if(this.health <= 0)
         {
             this.kill();
+            Stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
         }
     }
 
