@@ -9,11 +9,11 @@ import java.util.TimerTask;
 public class GameTimer extends Timer{
     protected double timeInSeconds;
     protected double timeRemaining;
-    World world;
+    final Stage stage;
 
-    public GameTimer(World world, double seconds)
+    public GameTimer(final Stage stage, double seconds)
     {
-        this.world = world;
+        this.stage = stage;
         timeInSeconds = seconds;
         timeRemaining = timeInSeconds;
         this.scheduleAtFixedRate(new TimerTask() {
@@ -23,6 +23,7 @@ public class GameTimer extends Timer{
                 {
                     this.cancel();
                     Stage.spawnTimer.cancel();
+                    stage.listener.onGameOver(stage.gameWon());
                 }
                 Log.i("TIMERTEST", "run: timer working" + timeRemaining);
                 timeRemaining -= 0.1;
