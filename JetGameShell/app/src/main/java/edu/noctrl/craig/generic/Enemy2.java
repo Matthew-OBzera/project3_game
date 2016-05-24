@@ -12,6 +12,7 @@ public class Enemy2 extends Enemy {
         super(theWorld);
         this.speed = 200;
         this.health = 20;
+        this.timeToAdd = .5;
         this.substance = Collision.SolidAI;
     }
 

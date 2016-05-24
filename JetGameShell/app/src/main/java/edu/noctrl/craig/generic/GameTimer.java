@@ -1,5 +1,7 @@
 package edu.noctrl.craig.generic;
 
+import android.util.Log;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -7,18 +9,22 @@ import java.util.TimerTask;
 public class GameTimer extends Timer{
     protected double timeInSeconds;
     protected double timeRemaining;
-    public GameTimer(double seconds)
+    World world;
+
+    public GameTimer(World world, double seconds)
     {
+        this.world = world;
         timeInSeconds = seconds;
         timeRemaining = timeInSeconds;
-        this.schedule(new TimerTask() {
+        this.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if(timeRemaining == 0)
+                if(timeRemaining <= 0)
                 {
                     this.cancel();
-                    //end game
+                    Stage.spawnTimer.cancel();
                 }
+                Log.i("TIMERTEST", "run: timer working" + timeRemaining);
                 timeRemaining -= 0.1;
                 updateDisplay();
             }
@@ -35,4 +41,5 @@ public class GameTimer extends Timer{
     {
         timeRemaining += seconds;
     }
+
 }

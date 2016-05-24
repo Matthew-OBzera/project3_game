@@ -11,17 +11,19 @@ public class Stage extends World {
     private Player player;
     public static Timer spawnTimer;
     protected static GameTimer gameTimer;
+    protected StateListener listener;
     public Stage(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
         player = new Player(this);
         this.addObject(player);
+        this.listener = listener;
     }
 
     @Override
     protected void initialize(){
         spawnTimer = new Timer();
         spawnTimer.schedule(new Spawner(this), 3000);
-        gameTimer = new GameTimer(10.0);
+        gameTimer = new GameTimer(this, 10.0);
     }
 
     @Override
@@ -56,6 +58,4 @@ public class Stage extends World {
        }
         return false;
     }
-
-
 }
