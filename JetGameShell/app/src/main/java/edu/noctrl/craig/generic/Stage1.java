@@ -11,8 +11,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class Stage1 extends Stage {
     private Player player;
-    public static Timer spawnTimer;
-    protected static GameTimer gameTimer;
     protected StateListener listener;
     public Stage1(StateListener listener, SoundManager sounds) {
         super(listener, sounds);

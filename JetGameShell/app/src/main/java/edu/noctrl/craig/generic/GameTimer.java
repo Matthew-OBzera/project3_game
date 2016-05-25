@@ -22,7 +22,7 @@ public class GameTimer extends Timer{
                 if(timeRemaining <= 0)
                 {
                     this.cancel();
-                    Stage.spawnTimer.cancel();
+                    stage.spawnTimer.cancel();
                     stage.listener.onGameOver(stage.gameWon());
                 }
                 Log.i("TIMERTEST", "run: timer working" + timeRemaining);

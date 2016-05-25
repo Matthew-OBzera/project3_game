@@ -10,9 +10,10 @@ public class Enemy extends GameSprite {
 
     protected int health;
     protected double timeToAdd;
-
-    public Enemy(World theWorld) {
-        super(theWorld);
+    final Stage stage;
+    public Enemy(Stage stage) {
+        super(stage);
+        this.stage = stage;
     }
 
     @Override
@@ -38,8 +39,8 @@ public class Enemy extends GameSprite {
         if(this.health <= 0)
         {
             this.kill();
-            world.enemy_count--;
-            Stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
+            stage.enemy_count--;
+            stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
         }
     }
 

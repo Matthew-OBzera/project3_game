@@ -11,24 +11,24 @@ import java.util.TimerTask;
  */
 public class Spawner extends TimerTask {
 
-    World world;
+    final Stage stage;
 
-    public Spawner(World world) {
-        this.world = world;
+    public Spawner(Stage stage) {
+        this.stage = stage;
     }
 
     @Override
     public void run() {
-        if (world.enemy_count < world.MAX_ON_ENEMIES_SCREEN) {
-            Enemy2 enemy = new Enemy2(world);
-            int range = (world.width - (world.width / 3) - 64);
-            enemy.position.X = (int) ((Math.random() * range) + (world.width / 3));
-            enemy.position.Y = (int) (Math.random() * (world.height - 64));
+        if (stage.enemy_count < stage.MAX_ON_ENEMIES_SCREEN) {
+            Enemy2 enemy = new Enemy2(stage);
+            int range = (stage.width - (stage.width / 3) - 64);
+            enemy.position.X = (int) ((Math.random() * range) + (stage.width / 3));
+            enemy.position.Y = (int) (Math.random() * (stage.height - 64));
             boolean collide = false;
             boolean finished = false;
 
             while (!finished) {
-                for (GameObject object : world.objects) {
+                for (GameObject object : stage.objects) {
                     //Log.v("Current Object X, Y: ", )
                     float dx = object.position.X - enemy.position.X;
                     float dy = object.position.Y - enemy.position.Y;
@@ -41,18 +41,18 @@ public class Spawner extends TimerTask {
                     finished = true;
                     Log.v("Test1", "Placed");
                 } else {
-                    enemy.position.X = (int) ((Math.random() * range) + (world.width / 3));
-                    enemy.position.Y = (int) (Math.random() * (world.height - 64));
+                    enemy.position.X = (int) ((Math.random() * range) + (stage.width / 3));
+                    enemy.position.Y = (int) (Math.random() * (stage.height - 64));
                     collide = false;
                     Log.v("Test1", "Not Placed");
                 }
             }
 
 
-            world.addObject(enemy);
+            stage.addObject(enemy);
             int delay = (int) (Math.random() * 1500);
-            Stage.spawnTimer.schedule(new Spawner(world), delay);
-            world.enemy_count++;
+            stage.spawnTimer.schedule(new Spawner(stage), delay);
+            stage.enemy_count++;
         }
     }
 }
