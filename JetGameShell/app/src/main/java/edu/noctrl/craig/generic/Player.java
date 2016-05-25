@@ -1,17 +1,6 @@
 package edu.noctrl.craig.generic;
 
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-
-import com.deitel.cannongame.JetGameFragment;
-import com.deitel.cannongame.JetGameView;
 
 /**
  * Matthew OBzera
@@ -25,7 +14,7 @@ public class Player extends GameSprite {
         super(theWorld);
         this.speed = 200;
         this.position.X = 128;
-        this.position.Y = theWorld.TARGET_HEIGHT/2;
+        this.position.Y = theWorld.height/2;
     }
 
     @Override
