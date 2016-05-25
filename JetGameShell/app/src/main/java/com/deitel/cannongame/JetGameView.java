@@ -22,7 +22,12 @@ import java.io.InputStream;
 
 import edu.noctrl.craig.generic.GameSprite;
 import edu.noctrl.craig.generic.SoundManager;
+<<<<<<< HEAD
 import edu.noctrl.craig.generic.Stage2;
+=======
+import edu.noctrl.craig.generic.Stage;
+import edu.noctrl.craig.generic.Stage1;
+>>>>>>> master
 import edu.noctrl.craig.generic.World;
 
 public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, World.StateListener {
@@ -34,6 +39,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
     private SoundManager soundManager;
     private Activity activity; // to display Game Over dialog in GUI thread
     private boolean dialogIsDisplayed = false;
+    private int stageLvl = 1;
 
     // variables for the game loop and tracking statistics
     private boolean gameOver; // is the game over?
@@ -92,7 +98,16 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
         if (gameOver) // starting a new game after the last game ended
         {
             gameOver = false;
+<<<<<<< HEAD
             world = new Stage2(this, soundManager);
+=======
+            switch (stageLvl)
+            {
+                case 1:world = new Stage1(this, soundManager); break;
+                //case 2: world = new Stage(2)
+                default: world = new Stage1(this,  soundManager); break;
+            }
+>>>>>>> master
             world.updateSize(screenWidth, screenHeight);
             this.setOnTouchListener(world);
             gameThread = new GameThread(holder, world); // create thread
@@ -101,7 +116,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
     } // end method newGame
 
     // display an AlertDialog when the game ends
-    private void showGameOverDialog(final int messageId) {
+    private void showGameOverDialog(final boolean lost) {
         // DialogFragment to display quiz stats and start new quiz
         final DialogFragment gameResult =
                 new DialogFragment() {
@@ -116,12 +131,26 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
                         // display number of shots fired and total time elapsed
                         builder.setMessage(getResources().getString(
                                 R.string.results_format,
-                                0,//world.shotsFired,
-                                0,//world.kills,
-                                0,//world.remaining,
-                                0,//world.score,
+                                world.shotsFired,//world.shotsFired,
+                                world.kills,//world.kills,
+                                world.enemiesRemaining,//world.remaining,
+                                world.score,//world.score,
                                 world.totalElapsedTime));
-                        builder.setPositiveButton(R.string.reset_game,
+                        if(!lost)
+                        {
+                            builder.setPositiveButton(R.string.next_stage,
+                                    new DialogInterface.OnClickListener() {
+                                        // called when "Reset Game" Button is pressed
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialogIsDisplayed = false;
+                                            ++stageLvl;
+                                            newGame(getHolder()); // set up and start a new game
+                                        }
+                                    } // end anonymous inner class
+                            ); // end call to setPositiveButton
+                        }
+                        builder.setNegativeButton(R.string.reset_game,
                                 new DialogInterface.OnClickListener() {
                                     // called when "Reset Game" Button is pressed
                                     @Override
@@ -196,6 +225,6 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
     public void onGameOver(boolean lost) {
         gameOver = true; // the game is over
         gameThread.stopGame(); // terminate thread
-        showGameOverDialog(R.string.lose); // show the losing dialog
+        showGameOverDialog(lost); // show the losing dialog
     }
 }

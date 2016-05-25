@@ -7,11 +7,13 @@ import android.graphics.Rect;
  */
 public class Enemy2 extends Enemy {
 
-    private final Rect rect = new Rect(187,87,216,108);
-    public Enemy2(World theWorld) {
-        super(theWorld);
+    private final Rect rect = new Rect(12,300,100,379);
+    public Enemy2(Stage stage) {
+        super(stage);
         this.speed = 200;
         this.health = 20;
+        this.timeToAdd = .5;
+        this.pointWorth = 5;
         this.substance = Collision.SolidAI;
     }
 
@@ -22,7 +24,7 @@ public class Enemy2 extends Enemy {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(1,1,1);
+        return new Point3F(.55F,.55F,1);
     }
 
     @Override
