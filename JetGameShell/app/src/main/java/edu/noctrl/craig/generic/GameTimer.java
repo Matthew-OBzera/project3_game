@@ -33,8 +33,8 @@ public class GameTimer extends Timer{
     }
 
     private void updateDisplay() {
-        //once status bar exsists update gui
-        //will make a formatted time
+
+
     }
 
     //On enemy killed increase time remaining

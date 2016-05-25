@@ -11,8 +11,8 @@ public abstract class Bullet extends GameSprite {
     protected int damage;
     protected int penetration;
 
-    public Bullet(World theWorld) {
-        super(theWorld);
+    public Bullet(Stage stage) {
+        super(stage);
     }
 
     @Override

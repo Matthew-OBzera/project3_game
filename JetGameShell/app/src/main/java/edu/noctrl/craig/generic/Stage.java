@@ -31,7 +31,6 @@ public class Stage extends World {
 
     protected boolean gameWon()
     {
-        //add killcount
-        return false;
+        return true;
     }
 }

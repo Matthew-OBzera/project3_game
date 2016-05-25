@@ -1,5 +1,6 @@
 package edu.noctrl.craig.generic;
 
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -71,10 +72,13 @@ public class Stage1 extends Stage {
         }
         return false;
     }
-
+    @Override
     protected boolean gameWon()
     {
-        //add killcount
-        return false;
+        if(enemiesRemaining == 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

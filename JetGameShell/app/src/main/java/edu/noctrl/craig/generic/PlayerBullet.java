@@ -8,9 +8,9 @@ import android.graphics.Rect;
 public class PlayerBullet extends Bullet {
 
     private final Rect rect = new Rect(118,310,182,370);
-
-    public PlayerBullet(World theWorld) {
-        super(theWorld);
+    Stage stage;
+    public PlayerBullet(Stage stage) {
+        super(stage);
         damage = 20;
         this.penetration = 1;
         this.collidesWith = Collision.SolidAI;
@@ -18,6 +18,7 @@ public class PlayerBullet extends Bullet {
         this.speed = 600;
         this.baseVelocity = new Point3F(1,1,0);
         this.updateVelocity();
+        this.stage = stage;
 
     }
 

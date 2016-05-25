@@ -3,6 +3,7 @@ package com.deitel.cannongame;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+import edu.noctrl.craig.generic.Stage;
 import edu.noctrl.craig.generic.World;
 
 /**
