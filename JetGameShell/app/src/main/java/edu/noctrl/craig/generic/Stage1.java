@@ -3,17 +3,18 @@ package edu.noctrl.craig.generic;
 import android.view.MotionEvent;
 import android.view.View;
 
-import java.sql.Time;
-import java.util.Random;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
-public class Stage extends World {
+/**
+ * Created by mobze on 5/24/2016.
+ */
+public class Stage1 extends Stage {
     private Player player;
     public static Timer spawnTimer;
     protected static GameTimer gameTimer;
     protected StateListener listener;
-    public Stage(StateListener listener, SoundManager sounds) {
+    public Stage1(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
         player = new Player(this);
         this.addObject(player);

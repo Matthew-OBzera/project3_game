@@ -7,7 +7,7 @@ import android.graphics.Rect;
  */
 public class PlayerBullet extends Bullet {
 
-    private final Rect rect = new Rect(187,87,216,108);
+    private final Rect rect = new Rect(118,310,182,370);
 
     public PlayerBullet(World theWorld) {
         super(theWorld);
@@ -29,7 +29,7 @@ public class PlayerBullet extends Bullet {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(1,1,1);
+        return new Point3F(.5f,.5f,1);
     }
 
     @Override

@@ -23,6 +23,8 @@ public class World implements View.OnTouchListener {
     public static interface StateListener{
         public void onGameOver(boolean lost);
     }
+    protected static final float MAX_ON_ENEMIES_SCREEN = 30;
+    public int enemy_count = 0;
     protected static final float TARGET_WIDTH = 540;
     protected static final float TARGET_HEIGHT = 960;
     protected static final float TARGET_PIXELS_PER_METER = 64F/30F;//ship len = 30m  ship base = 64px

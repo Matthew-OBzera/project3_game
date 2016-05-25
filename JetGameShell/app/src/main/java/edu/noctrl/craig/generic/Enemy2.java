@@ -7,7 +7,7 @@ import android.graphics.Rect;
  */
 public class Enemy2 extends Enemy {
 
-    private final Rect rect = new Rect(187,87,216,108);
+    private final Rect rect = new Rect(12,300,100,379);
     public Enemy2(World theWorld) {
         super(theWorld);
         this.speed = 200;
@@ -23,7 +23,7 @@ public class Enemy2 extends Enemy {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(1,1,1);
+        return new Point3F(.55F,.55F,1);
     }
 
     @Override

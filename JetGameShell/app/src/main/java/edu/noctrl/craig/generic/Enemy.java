@@ -38,6 +38,7 @@ public class Enemy extends GameSprite {
         if(this.health <= 0)
         {
             this.kill();
+            world.enemy_count--;
             Stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
         }
     }
