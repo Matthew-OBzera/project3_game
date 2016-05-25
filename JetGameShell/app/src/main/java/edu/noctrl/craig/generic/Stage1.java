@@ -17,6 +17,7 @@ public class Stage1 extends Stage {
         player = new Player(this);
         this.addObject(player);
         this.listener = listener;
+        enemiesRemaining = 10;
     }
 
     @Override
@@ -40,6 +41,7 @@ public class Stage1 extends Stage {
                 {
                     player.fireBullet();
                     --player.bulletCount;
+                    this.shotsFired++;
                     PlayerBullet pBullet = new PlayerBullet(this);
                     pBullet.position.X = player.position.X;
                     pBullet.position.Y = player.position.Y;

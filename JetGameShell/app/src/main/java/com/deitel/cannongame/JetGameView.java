@@ -117,10 +117,10 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
                         // display number of shots fired and total time elapsed
                         builder.setMessage(getResources().getString(
                                 R.string.results_format,
-                                0,//world.shotsFired,
-                                0,//world.kills,
-                                0,//world.remaining,
-                                0,//world.score,
+                                world.shotsFired,//world.shotsFired,
+                                world.kills,//world.kills,
+                                world.enemiesRemaining,//world.remaining,
+                                world.score,//world.score,
                                 world.totalElapsedTime));
                         builder.setPositiveButton(R.string.reset_game,
                                 new DialogInterface.OnClickListener() {

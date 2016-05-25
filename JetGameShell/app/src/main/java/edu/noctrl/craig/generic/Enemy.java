@@ -10,6 +10,7 @@ public class Enemy extends GameSprite {
 
     protected int health;
     protected double timeToAdd;
+    protected int pointWorth;
     final Stage stage;
     public Enemy(Stage stage) {
         super(stage);
@@ -41,6 +42,12 @@ public class Enemy extends GameSprite {
             this.kill();
             stage.enemy_count--;
             stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
+            stage.score += this.pointWorth;
+            stage.kills++;
+            if(stage.enemiesRemaining > 0)
+            {
+                stage.enemiesRemaining--;
+            }
         }
     }
 
