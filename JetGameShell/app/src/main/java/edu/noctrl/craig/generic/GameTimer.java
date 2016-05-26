@@ -11,6 +11,7 @@ public class GameTimer extends Timer{
     protected double timeRemaining;
     final Stage stage;
 
+
     public GameTimer(final Stage stage, double seconds)
     {
         this.stage = stage;
@@ -32,9 +33,8 @@ public class GameTimer extends Timer{
         }, 3000, 100);
     }
 
-    private void updateDisplay() {
-
-
+    public void updateDisplay() {
+        TimerDisplay.setString(Double.toString((int)timeRemaining));
     }
 
     //On enemy killed increase time remaining

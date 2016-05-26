@@ -1,6 +1,5 @@
 package edu.noctrl.craig.generic;
 
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -26,6 +25,8 @@ public class Stage1 extends Stage {
         spawnTimer = new Timer();
         spawnTimer.schedule(new Spawner(this), 3000);
         gameTimer = new GameTimer(this, 10.0);
+        TimerDisplay timerDisplay = new TimerDisplay(this,gameTimer);
+        this.addObject(timerDisplay);
     }
 
     @Override
