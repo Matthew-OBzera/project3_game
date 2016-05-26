@@ -7,13 +7,16 @@ public class Player extends GameSprite {
     static final Rect stationaryStanding = new Rect(65,397,104,450);
     static final Rect firePose = new Rect(185,463,240,510);
     private Rect toPass;
+
     protected int bulletCount = 3;
+    protected int health = 10;
 
     public Player(World theWorld) {
         super(theWorld);
         this.speed = 200;
+        this.substance = Collision.SolidPlayer;
         this.position.X = 128;
-        this.position.Y = theWorld.TARGET_HEIGHT/2;
+        this.position.Y = theWorld.height/2;
         this.toPass = stationaryStanding;
     }
 
@@ -27,7 +30,7 @@ public class Player extends GameSprite {
         return new Point3F(1,1,1);
     }
 
-    protected void fireBullet()
+    protected void setFirePose()
     {
         this.toPass = firePose;
         getSource();
@@ -50,6 +53,5 @@ public class Player extends GameSprite {
     }
     @Override
     public void cull() {
-
     }
 }

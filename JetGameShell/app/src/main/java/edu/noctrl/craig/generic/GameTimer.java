@@ -1,6 +1,5 @@
 package edu.noctrl.craig.generic;
 
-import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,7 +39,6 @@ public class GameTimer extends Timer{
     }
 
     private void updateDisplay() {
-        timeInSeconds = timeRemaining;
         TimerDisplay.setString(Double.toString(Math.round(timeInSeconds * 10.0) / 10.0));
     }
 

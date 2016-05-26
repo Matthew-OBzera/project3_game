@@ -2,24 +2,18 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-public class Enemy2 extends Enemy {
-
+/**
+ * Created by gerardopaleo on 5/25/16.
+ */
+public class Enemy3 extends Enemy {
     private final Rect rect = new Rect(12,300,100,379);
-    public Enemy2(Stage stage) {
+    public Enemy3(Stage stage) {
         super(stage);
-        this.speed = 200;
+
+        this.speed = 20;
         this.health = 20;
         this.timeToAdd = .5;
         this.pointWorth = 5;
-
-        if(stage.callsForEnemyMovement)
-        {
-            new EnemyMovement(this);
-        }
-        if(stage.callsForEnemyFire)
-        {
-            new EnemyFire(this);
-        }
     }
 
     @Override
@@ -48,7 +42,7 @@ public class Enemy2 extends Enemy {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(.4F,.4F,1);
+        return new Point3F(.55F,.55F,1);
     }
 
     @Override

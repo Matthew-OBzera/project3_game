@@ -13,10 +13,7 @@ public class PlayerBullet extends Bullet {
         this.collidesWith = Collision.SolidAI;
         this.substance = Collision.SolidPlayer;
         this.speed = 600;
-        this.baseVelocity = new Point3F(1,1,0);
-        this.updateVelocity();
         this.stage = stage;
-
     }
 
 
@@ -34,20 +31,4 @@ public class PlayerBullet extends Bullet {
     public void cull() {
 
     }
-
-    /*@Override
-    public void collision(GameObject other) {
-        switch(this.penetration)
-        {
-            case 2: this.penetration--;
-                    this.speed = 300;
-                    break;
-            case 1: this.penetration--;
-                    this.speed = 300;
-                    break;
-            case 0: kill();
-                    break;
-        }/
-
-    }*/
 }

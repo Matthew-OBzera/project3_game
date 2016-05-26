@@ -22,8 +22,8 @@ import java.io.InputStream;
 
 import edu.noctrl.craig.generic.GameSprite;
 import edu.noctrl.craig.generic.SoundManager;
-import edu.noctrl.craig.generic.Stage;
 import edu.noctrl.craig.generic.Stage1;
+import edu.noctrl.craig.generic.Stage2;
 import edu.noctrl.craig.generic.World;
 
 public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, World.StateListener {
@@ -94,10 +94,11 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
         if (gameOver) // starting a new game after the last game ended
         {
             gameOver = false;
+
             switch (stageLvl)
             {
                 case 1:world = new Stage1(this, soundManager); break;
-                //case 2: world = new Stage(2)
+                case 2: world = new Stage2(this, soundManager); break;
                 default: world = new Stage1(this,  soundManager); break;
             }
             world.updateSize(screenWidth, screenHeight);
@@ -127,7 +128,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
                                 world.kills,//world.kills,
                                 world.enemiesRemaining,//world.remaining,
                                 world.score,//world.score,
-                                world.totalElapsedTime - 3.0));
+                                world.totalElapsedTime-3.0));
                         if(!lost)
                         {
                             builder.setPositiveButton(R.string.next_stage,

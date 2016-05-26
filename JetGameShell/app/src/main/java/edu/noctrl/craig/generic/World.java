@@ -32,6 +32,7 @@ public class World implements View.OnTouchListener {
     public int shotsFired = 0;
     public int score = 0;
     public int kills = 0;
+    public int hits = 0;
     public int enemiesRemaining;
     public int width;
     public int height;

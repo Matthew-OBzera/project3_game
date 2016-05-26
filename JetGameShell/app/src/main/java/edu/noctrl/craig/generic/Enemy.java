@@ -2,7 +2,7 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-public class Enemy extends GameSprite {
+public abstract class Enemy extends GameSprite {
 
     protected int health;
     protected double timeToAdd;
@@ -12,13 +12,13 @@ public class Enemy extends GameSprite {
     public Enemy(Stage stage) {
         super(stage);
         this.stage = stage;
+        this.substance = GameObject.Collision.SolidAI;
+        this.collidesWith = Collision.SolidAI;
     }
 
-    //TO BE OVERRIDDEN in subclasses
-    public void enemyMove()
-    {
+    public abstract void move();
 
-    }
+    public abstract void fire();
 
     @Override
     public void cull() {
@@ -26,44 +26,28 @@ public class Enemy extends GameSprite {
     }
 
     @Override
-    public void collision(GameObject other) {
-        PlayerBullet bullet = (PlayerBullet) other;
-        this.health -= bullet.damage;
-        bullet.kill();
+    public void collision(GameObject object) {
+        if (object instanceof Enemy3){
+            Point3F newVel = this.baseVelocity.mult(-1);
+            //this.changeBaseVelocity(newVel);
+            //GET BACK TO THIS
+        }else if(object instanceof PlayerBullet){
 
-        /*if(bullet.penetration > 0)
-        {
-            bullet.penetration--;
-            this.health = 0;
-        }
-        if(bullet.penetration == 0)
-        {
+            PlayerBullet bullet = (PlayerBullet) object;
             bullet.kill();
-        }*/
-        if(this.health <= 0)
-        {
-            this.kill();
-            stage.enemy_count--;
-            if(stage.needsTimer)
+            this.health -= bullet.damage;
+            stage.recordEnemyHit();
+            if(this.health <= 0)
             {
-                stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
-            }
-            stage.score += this.pointWorth;
-            stage.kills++;
-            if(stage.enemiesRemaining > 0)
-            {
-                stage.enemiesRemaining--;
+                this.kill();
+                stage.recordEnemyKilled(this);
             }
         }
     }
 
     @Override
-    public Rect getSource() {
-        return null;
-    }
+    public abstract Rect getSource();
 
     @Override
-    public Point3F getScale() {
-        return null;
-    }
+    public abstract Point3F getScale();
 }

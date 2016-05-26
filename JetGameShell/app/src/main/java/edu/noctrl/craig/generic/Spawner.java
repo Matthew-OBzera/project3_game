@@ -15,7 +15,7 @@ public class Spawner extends TimerTask {
     @Override
     public void run() {
         if (stage.enemy_count < stage.MAX_ON_ENEMIES_SCREEN) {
-            Enemy2 enemy = new Enemy2(stage);
+            Enemy3 enemy = new Enemy3(stage);
             int range = (stage.width - (stage.width / 3) - 64);
             enemy.position.X = (int) ((Math.random() * range) + (stage.width / 3));
             enemy.position.Y = (int) (Math.random() * (stage.height - 64));
@@ -42,8 +42,6 @@ public class Spawner extends TimerTask {
                     Log.v("Test1", "Not Placed");
                 }
             }
-
-
             stage.addObject(enemy);
             int delay = (int) (Math.random() * 1500);
             stage.spawnTimer.schedule(new Spawner(stage), delay);
