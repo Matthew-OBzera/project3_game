@@ -65,6 +65,11 @@ public class Stage1 extends Stage {
     }
 
     @Override
+    protected void recordPlayerHit(Bullet eBullet) {
+        //not implemented in stage 1
+    }
+
+    @Override
     protected boolean gameWon() {
         if (enemiesRemaining == 0) {
             return false;

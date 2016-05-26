@@ -17,7 +17,7 @@ public class Enemy3 extends Enemy {
     }
 
     @Override
-    public void move() {
+    public void move(Point3F p) {
 
     }
 

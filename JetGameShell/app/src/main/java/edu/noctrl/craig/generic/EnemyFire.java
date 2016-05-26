@@ -1,5 +1,7 @@
 package edu.noctrl.craig.generic;
 
+import android.util.Log;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,6 +22,6 @@ public class EnemyFire extends Timer {
                     enemy.fire();
                 }
             }
-        }, 3000, 100);
+        }, 3000, 3000);
     }
 }

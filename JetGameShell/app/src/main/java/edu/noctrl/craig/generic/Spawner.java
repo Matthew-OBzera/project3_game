@@ -15,7 +15,7 @@ public class Spawner extends TimerTask {
     @Override
     public void run() {
         if (stage.enemy_count < stage.MAX_ON_ENEMIES_SCREEN) {
-            Enemy3 enemy = new Enemy3(stage);
+            Enemy enemy = new Enemy2(stage);
             int range = (stage.width - (stage.width / 3) - 64);
             enemy.position.X = (int) ((Math.random() * range) + (stage.width / 3));
             enemy.position.Y = (int) (Math.random() * (stage.height - 64));
@@ -34,12 +34,10 @@ public class Spawner extends TimerTask {
                 }
                 if (!collide) {
                     finished = true;
-                    Log.v("Test1", "Placed");
                 } else {
                     enemy.position.X = (int) ((Math.random() * range) + (stage.width / 3));
                     enemy.position.Y = (int) (Math.random() * (stage.height - 64));
                     collide = false;
-                    Log.v("Test1", "Not Placed");
                 }
             }
             stage.addObject(enemy);

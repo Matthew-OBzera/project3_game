@@ -16,14 +16,16 @@ public class EnemyMovement extends Timer {
             public void run() {
                 if (enemy.isDead() || enemy.offScreen) {
                     this.cancel();
-                    Log.i("TIMERTEST", "run: ENEMY DEAD");
                 }
                 else
                 {
-                    Log.i("TIMERTEST", "run: ENEMY MOVING");
-                    //enemy.move();
+                    Float x = (float)(Math.random() * 5 * (Math.random() > 0.5 ? 1 : -1));
+                    Float y = (float)(Math.random() * 5 * (Math.random() > 0.5 ? 1 : -1));
+                    Float z = (float)(Math.random() * 5 * (Math.random() > 0.5 ? 1 : -1));
+                    Point3F point = new Point3F(x,y,z);
+                    enemy.move(point);
                 }
             }
-        }, 3000, 100);
+        }, 0, 1000);
     }
 }

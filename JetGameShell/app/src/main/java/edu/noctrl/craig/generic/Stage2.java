@@ -1,5 +1,6 @@
 package edu.noctrl.craig.generic;
 
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -27,7 +28,7 @@ public class Stage2 extends Stage {
         needsTimer = false;
         callsForEnemyMovement = true;
         callsForEnemyFire = true;
-
+        enemiesRemaining = 30;
         spawnTimer = new Timer();
         spawnTimer.schedule(new Spawner(this), 3000);
     }
@@ -77,9 +78,40 @@ public class Stage2 extends Stage {
         enemy_count--;
         score += enemy.pointWorth;
         kills++;
-        if(enemy_count <= 0){
+        if(enemiesRemaining > 0){
+            enemiesRemaining--;
+        }
+        if(enemiesRemaining <= 0){
             spawnTimer.cancel();
-            listener.onGameOver(false);
+            Log.i("END STAGE 2", "TEST");
+            if(enemy_count <= 0)
+            {
+                listener.onGameOver(false);
+                for(int i = 0; i < objects.size(); i++)
+                {
+                    if(objects.get(i) instanceof Enemy)
+                    {
+                        objects.get(i).offScreen = true;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void recordPlayerHit(Bullet eBullet)
+    {
+        player.health -= eBullet.damage;
+        if (player.health <= 0){
+            spawnTimer.cancel();
+            listener.onGameOver(true);
+            for(int i = 0; i < objects.size(); i++)
+            {
+                if(objects.get(i) instanceof Enemy)
+                {
+                    objects.get(i).offScreen = true;
+                }
+            }
         }
     }
 

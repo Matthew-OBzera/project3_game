@@ -92,6 +92,19 @@ public class World implements View.OnTouchListener {
         synchronized (newObjects){
             for(int i = objects.size() - 1;i >= 0; i--){
                 go = objects.get(i);
+                if(go instanceof Enemy)
+                {
+                    if(go.position.X < width/3.5 +100 || go.position.X > width)
+                    {
+                        go.baseVelocity.X *= -1.0;
+                        ((Enemy) go).move(go.baseVelocity);
+                    }
+                    if(go.position.Y > (height-64) || go.position.Y < 0)
+                    {
+                        go.baseVelocity.Y *= -1.0;
+                        ((Enemy) go).move(go.baseVelocity);
+                    }
+                }
                 if(go.offScreen){
                     objects.remove(i);
                     removed.add(go);

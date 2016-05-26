@@ -29,6 +29,8 @@ public abstract class Stage extends World {
     @Override
     public abstract boolean onTouch(View v, MotionEvent event);
 
+    protected abstract void recordPlayerHit(Bullet eBullet);
+
     protected abstract void recordEnemyKilled(Enemy enemy);
 
     protected void recordEnemyHit(){

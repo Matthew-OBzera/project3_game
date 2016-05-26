@@ -7,7 +7,7 @@ public class Enemy2 extends Enemy {
     private final Rect rect = new Rect(12,300,100,379);
     public Enemy2(Stage stage) {
         super(stage);
-        this.speed = 200;
+        this.speed = 50;
         this.health = 20;
         this.timeToAdd = .5;
         this.pointWorth = 5;
@@ -23,7 +23,10 @@ public class Enemy2 extends Enemy {
     }
 
     @Override
-    public void move() {
+    public void move(Point3F p) {
+
+        this.baseVelocity = p;
+        this.updateVelocity();
 
     }
 

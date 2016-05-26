@@ -26,6 +26,16 @@ public class Orochimaru extends Enemy {
     }
 
     @Override
+    public void move(Point3F p) {
+
+    }
+
+    @Override
+    public void fire() {
+
+    }
+
+    @Override
     public Rect getSource() {
         return rect;
     }

@@ -42,11 +42,7 @@ public class EnemyBullet extends Bullet {
             this.kill();
         }else if( object instanceof Player){
             this.kill();
-            stage.player.health -= this.damage;
-            if (stage.player.health <= 0){
-                stage.spawnTimer.cancel();
-                stage.listener.onGameOver(true);
-            }
+            stage.recordPlayerHit(this);
         }
     }
 }

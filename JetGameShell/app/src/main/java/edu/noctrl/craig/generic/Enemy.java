@@ -16,7 +16,7 @@ public abstract class Enemy extends GameSprite {
         this.collidesWith = Collision.SolidAI;
     }
 
-    public abstract void move();
+    public abstract void move(Point3F p);
 
     public abstract void fire();
 
