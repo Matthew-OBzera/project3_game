@@ -1,5 +1,6 @@
 package edu.noctrl.craig.generic;
 
+import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,7 +40,8 @@ public class GameTimer extends Timer{
     }
 
     private void updateDisplay() {
-        TimerDisplay.setString(Double.toString((int)timeRemaining));
+        DecimalFormat df = new DecimalFormat("#.#");
+        TimerDisplay.setString(df.format(timeRemaining).toString());
     }
 
     //On enemy killed increase time remaining

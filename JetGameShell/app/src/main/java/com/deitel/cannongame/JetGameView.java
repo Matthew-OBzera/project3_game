@@ -127,7 +127,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
                                 world.kills,//world.kills,
                                 world.enemiesRemaining,//world.remaining,
                                 world.score,//world.score,
-                                world.totalElapsedTime));
+                                world.totalElapsedTime - 3.0));
                         if(!lost)
                         {
                             builder.setPositiveButton(R.string.next_stage,
