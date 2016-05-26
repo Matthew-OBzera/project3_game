@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.text.TextPaint;
 
 public class TimerDisplay extends GameObject {
-    private static String timeDisp = "Time Remaining: 10.0";
+    private static String timeDisp = "Get Ready!";
     private TextPaint textPaint = new TextPaint();
 
 

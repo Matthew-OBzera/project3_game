@@ -40,8 +40,8 @@ public class GameTimer extends Timer{
     }
 
     private void updateDisplay() {
-        DecimalFormat df = new DecimalFormat("#.#");
-        TimerDisplay.setString(df.format(timeRemaining).toString());
+        timeInSeconds = timeRemaining;
+        TimerDisplay.setString(Double.toString(Math.round(timeInSeconds * 10.0) / 10.0))
     }
 
     //On enemy killed increase time remaining
