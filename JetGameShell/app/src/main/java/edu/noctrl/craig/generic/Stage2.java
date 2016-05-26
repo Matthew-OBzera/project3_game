@@ -3,20 +3,19 @@ package edu.noctrl.craig.generic;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.Timer;
+
 /**
  * Created by gerardopaleo on 5/23/16.
  */
-public class Stage2 extends World implements WorldFunctions {
-
-    int totalScore;
-    int enemiesKilled;
-    int enemiesHit;
-    private Player player;
+public class Stage2 extends Stage implements WorldFunctions {
+    protected StateListener listener;
     private Boolean dragging = false;
 
 
     public Stage2(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
+        this.listener = listener;
     }
 
     @Override
@@ -24,6 +23,9 @@ public class Stage2 extends World implements WorldFunctions {
 
         player = new Player(this);
         this.addObject(player);
+
+        spawnTimer = new Timer();
+        spawnTimer.schedule(new Spawner(this), 3000);
     }
 
     @Override
@@ -39,7 +41,7 @@ public class Stage2 extends World implements WorldFunctions {
                     break;
                 }
                 case MotionEvent.ACTION_MOVE: {
-                    if (event.getX() < 100) {
+                    if (v.getWidth()/3.5 > event.getX()) {
                         if (dragging) {
                             player.position.X = event.getX();
                             player.position.Y = event.getY();
@@ -67,8 +69,10 @@ public class Stage2 extends World implements WorldFunctions {
         PlayerBullet pBullet = new PlayerBullet(this);
         pBullet.position.X = player.position.X;
         pBullet.position.Y = player.position.Y;
+        pBullet.baseVelocity.X = 1;
         pBullet.baseVelocity.Y = 0;
         pBullet.updateVelocity();
+        this.shotsFired++;
         this.addObject(pBullet);
     }
 

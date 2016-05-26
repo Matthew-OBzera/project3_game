@@ -1,6 +1,5 @@
 package edu.noctrl.craig.generic;
 
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -11,18 +10,22 @@ import java.util.concurrent.TimeUnit;
  * Created by mobze on 5/24/2016.
  */
 public class Stage1 extends Stage {
-    private Player player;
     protected StateListener listener;
     public Stage1(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
-        player = new Player(this);
-        this.addObject(player);
+        //player = new Player(this);
+        //this.addObject(player);
         this.listener = listener;
-        enemiesRemaining = 10;
+        //enemiesRemaining = 10;
     }
 
     @Override
     protected void initialize(){
+        player = new Player(this);
+        this.addObject(player);
+        enemiesRemaining = 10;
+
+
         spawnTimer = new Timer();
         spawnTimer.schedule(new Spawner(this), 3000);
         gameTimer = new GameTimer(this, 10.0);

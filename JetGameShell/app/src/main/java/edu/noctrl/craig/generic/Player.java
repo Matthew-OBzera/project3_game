@@ -2,8 +2,6 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Matthew OBzera
  */
@@ -14,16 +12,18 @@ public class Player extends GameSprite {
     private Rect toPass;
     protected int bulletCount = 3;
 
+    protected int health = 10;
+
     public Player(World theWorld) {
         super(theWorld);
         this.speed = 200;
+
+        this.collidesWith = Collision.SolidAI;
+        this.substance = Collision.SolidPlayer;
+
         this.position.X = 128;
-<<<<<<< HEAD
         this.position.Y = theWorld.height/2;
-=======
-        this.position.Y = theWorld.TARGET_HEIGHT/2;
         this.toPass = stationaryStanding;
->>>>>>> master
     }
 
     @Override

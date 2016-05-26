@@ -16,8 +16,7 @@ public class PlayerBullet extends Bullet {
         this.collidesWith = Collision.SolidAI;
         this.substance = Collision.SolidPlayer;
         this.speed = 600;
-        this.baseVelocity = new Point3F(1,1,0);
-        this.updateVelocity();
+
         this.stage = stage;
 
     }

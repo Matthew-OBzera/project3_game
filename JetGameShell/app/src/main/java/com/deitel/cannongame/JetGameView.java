@@ -22,12 +22,8 @@ import java.io.InputStream;
 
 import edu.noctrl.craig.generic.GameSprite;
 import edu.noctrl.craig.generic.SoundManager;
-<<<<<<< HEAD
-import edu.noctrl.craig.generic.Stage2;
-=======
-import edu.noctrl.craig.generic.Stage;
 import edu.noctrl.craig.generic.Stage1;
->>>>>>> master
+import edu.noctrl.craig.generic.Stage2;
 import edu.noctrl.craig.generic.World;
 
 public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, World.StateListener {
@@ -98,16 +94,13 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
         if (gameOver) // starting a new game after the last game ended
         {
             gameOver = false;
-<<<<<<< HEAD
-            world = new Stage2(this, soundManager);
-=======
+
             switch (stageLvl)
             {
                 case 1:world = new Stage1(this, soundManager); break;
-                //case 2: world = new Stage(2)
+                case 2: world = new Stage2(this, soundManager); break;
                 default: world = new Stage1(this,  soundManager); break;
             }
->>>>>>> master
             world.updateSize(screenWidth, screenHeight);
             this.setOnTouchListener(world);
             gameThread = new GameThread(holder, world); // create thread

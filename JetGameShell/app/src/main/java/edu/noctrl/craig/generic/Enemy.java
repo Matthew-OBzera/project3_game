@@ -1,6 +1,5 @@
 package edu.noctrl.craig.generic;
 
-import android.graphics.Canvas;
 import android.graphics.Rect;
 
 /**
@@ -41,7 +40,7 @@ public class Enemy extends GameSprite {
         {
             this.kill();
             stage.enemy_count--;
-            stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
+            //stage.gameTimer.increaseTimeRemaining(this.timeToAdd);
             stage.score += this.pointWorth;
             stage.kills++;
             if(stage.enemiesRemaining > 0)
