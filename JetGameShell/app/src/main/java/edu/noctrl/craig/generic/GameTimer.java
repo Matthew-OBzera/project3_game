@@ -34,7 +34,8 @@ public class GameTimer extends Timer{
     }
 
     public void updateDisplay() {
-        TimerDisplay.setString(Double.toString((int)timeRemaining));
+        timeInSeconds = timeRemaining;
+        TimerDisplay.setString(Double.toString(Math.round(timeInSeconds * 10.0) / 10.0));
     }
 
     //On enemy killed increase time remaining
