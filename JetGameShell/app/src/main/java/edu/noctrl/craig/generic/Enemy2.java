@@ -2,9 +2,6 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-/**
- * Created by gerardopaleo on 5/21/16.
- */
 public class Enemy2 extends Enemy {
 
     private final Rect rect = new Rect(12,300,100,379);
@@ -15,6 +12,14 @@ public class Enemy2 extends Enemy {
         this.timeToAdd = .5;
         this.pointWorth = 5;
         this.substance = Collision.SolidAI;
+        if(stage.callsForEnemyMovement)
+        {
+            new EnemyMovement(this);
+        }
+        if(stage.callsForEnemyFire)
+        {
+            new EnemyFire(this);
+        }
     }
 
     @Override

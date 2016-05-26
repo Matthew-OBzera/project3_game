@@ -1,23 +1,7 @@
 package edu.noctrl.craig.generic;
 
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 
-import com.deitel.cannongame.JetGameFragment;
-import com.deitel.cannongame.JetGameView;
-
-import java.util.concurrent.TimeUnit;
-
-/**
- * Matthew OBzera
- */
 public class Player extends GameSprite {
 
     static final Rect stationaryStanding = new Rect(65,397,104,450);

@@ -1,11 +1,7 @@
 package edu.noctrl.craig.generic;
 
-import android.graphics.Canvas;
 import android.graphics.Rect;
 
-/**
- * Created by mobze on 5/22/2016.
- */
 public abstract class Bullet extends GameSprite {
 
     protected int damage;
