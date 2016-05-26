@@ -1,14 +1,9 @@
 package edu.noctrl.craig.generic;
 
-import android.graphics.RectF;
 import android.util.Log;
 
-import java.util.Random;
 import java.util.TimerTask;
 
-/**
- * Created by mobze on 5/22/2016.
- */
 public class Spawner extends TimerTask {
 
     final Stage stage;

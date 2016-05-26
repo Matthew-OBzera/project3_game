@@ -6,9 +6,6 @@ import android.view.View;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by mobze on 5/24/2016.
- */
 public class Stage1 extends Stage {
     private Player player;
     protected StateListener listener;
@@ -18,6 +15,9 @@ public class Stage1 extends Stage {
         this.addObject(player);
         this.listener = listener;
         enemiesRemaining = 10;
+        needsTimer = true;
+        callsForEnemyMovement = false;
+        callsForEnemyFire = false;
     }
 
     @Override

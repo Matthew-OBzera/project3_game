@@ -2,9 +2,6 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-/**
- * Created by mobze on 5/22/2016.
- */
 public class PlayerBullet extends Bullet {
 
     private final Rect rect = new Rect(118,310,182,370);
