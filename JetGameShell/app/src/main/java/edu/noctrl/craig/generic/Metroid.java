@@ -32,7 +32,7 @@ public class Metroid extends Enemy {
 
     @Override
     public void fire() {
-        EnemyBullet eBullet = new EnemyBullet(stage);
+        EnemyBullet eBullet = new EnergyBullet(stage);
         eBullet.position.X = this.position.X;
         eBullet.position.Y = this.position.Y;
         stage.addObject(eBullet);

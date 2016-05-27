@@ -99,7 +99,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
             {
                 case 1:world = new Stage1(this, soundManager); break;
                 case 2: world = new Stage2(this, soundManager); break;
-                default: world = new Stage1(this,  soundManager); break;
+                default: world = new Stage1(this,  soundManager); stageLvl = 1; break;
             }
             world.updateSize(screenWidth, screenHeight);
             this.setOnTouchListener(world);

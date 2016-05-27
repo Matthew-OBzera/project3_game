@@ -2,9 +2,6 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-/**
- * Created by Kyle on 5/26/2016.
- */
 public class Orochimaru extends Enemy {
 
     private final Rect rect = new Rect(333, 270, 398, 386);
@@ -33,7 +30,7 @@ public class Orochimaru extends Enemy {
 
     @Override
     public void fire() {
-        EnemyBullet eBullet = new EnemyBullet(stage);
+        EnemyBullet eBullet = new Rasenshuriken(stage);
         eBullet.position.X = this.position.X;
         eBullet.position.Y = this.position.Y;
         stage.addObject(eBullet);

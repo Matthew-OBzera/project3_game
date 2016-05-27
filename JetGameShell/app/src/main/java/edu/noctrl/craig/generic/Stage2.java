@@ -8,13 +8,10 @@ import android.view.View;
 
 import java.util.Timer;
 
-/**
- * Created by gerardopaleo on 5/23/16.
- */
 public class Stage2 extends Stage {
     protected StateListener listener;
     private Boolean dragging = false;
-
+    private PlayerHeathDisp healthDisp;
 
     public Stage2(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
@@ -33,6 +30,8 @@ public class Stage2 extends Stage {
         enemiesRemaining = 30;
         spawnTimer = new Timer();
         spawnTimer.schedule(new Spawner(this), 3000);
+        healthDisp = new PlayerHeathDisp(this, player.health);
+        this.addObject(healthDisp);
     }
 
     @Override
@@ -104,8 +103,15 @@ public class Stage2 extends Stage {
     protected void recordPlayerHit(Bullet eBullet)
     {
         player.health -= eBullet.damage;
+        PlayerHeathDisp.setString(player.health);
         if (player.health <= 0){
             spawnTimer.cancel();
+            //Killed thirty but died killing the remaining on screen
+            //account for that remaining they had to kill
+            if(enemiesRemaining == 0)
+            {
+                enemiesRemaining += enemy_count;
+            }
             listener.onGameOver(true);
             for(int i = 0; i < objects.size(); i++)
             {

@@ -1,6 +1,7 @@
 package edu.noctrl.craig.generic;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.text.TextPaint;
 
 public class TimerDisplay extends GameObject {
@@ -21,7 +22,7 @@ public class TimerDisplay extends GameObject {
             return;
         }
         textPaint.setTextSize(50.0f);
-
+        textPaint.setColor(Color.CYAN);
         canvas.drawText(timeDisp, 10, 50, textPaint);
     }
 

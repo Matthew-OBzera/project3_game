@@ -1,19 +1,17 @@
 package edu.noctrl.craig.generic;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.text.TextPaint;
 
-/**
- * Created by Kyle on 5/26/2016.
- */
 public class PlayerHeathDisp extends GameObject {
 
-    public String playerHealth;
+    private static String playerHealth;
     private TextPaint textPaint = new TextPaint();
 
     public PlayerHeathDisp(World theWorld, int health) {
         super(theWorld);
-        playerHealth = Integer.toString(health);
+        playerHealth = "Health Remaining: " + Integer.toString(health);
     }
 
     @Override
@@ -22,8 +20,14 @@ public class PlayerHeathDisp extends GameObject {
             return;
         }
         textPaint.setTextSize(50.0f);
+        textPaint.setColor(Color.CYAN);
 
-        canvas.drawText(playerHealth, 50, 50,textPaint);
+        canvas.drawText(playerHealth, 10, 50,textPaint);
+    }
+
+    public static void setString(int health)
+    {
+        playerHealth = "Health Remaining: " + String.valueOf(health);
     }
 
     @Override
