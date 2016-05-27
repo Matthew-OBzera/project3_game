@@ -11,7 +11,7 @@ public class Orochimaru extends Enemy {
     public Orochimaru(Stage stage) {
         super(stage);
         this.speed = 500;
-        this.health = 40;
+        this.health = 60;
         this.timeToAdd = 1;
         this.pointWorth = 15;
         this.substance = Collision.SolidAI;
@@ -42,7 +42,7 @@ public class Orochimaru extends Enemy {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(.55F,.55F,1);
+        return new Point3F(.42F,.42F,1);
     }
 
     @Override
