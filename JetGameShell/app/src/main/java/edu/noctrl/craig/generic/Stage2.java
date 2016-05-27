@@ -1,5 +1,7 @@
 package edu.noctrl.craig.generic;
 
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -138,5 +140,17 @@ public class Stage2 extends Stage {
             player.canFire = false;
             player.reload();
         }
+    }
+
+
+    @Override
+    public void draw(Canvas canvas){
+        if(canvas!=null){
+            canvas.drawBitmap(GameSprite.SPRITE_SOURCE, new Rect(525, 727, 986,919), new Rect(0,0, this.width, this.height), null);
+            for(GameObject obj : objects){
+                obj.draw(canvas);
+            }
+        }
+
     }
 }

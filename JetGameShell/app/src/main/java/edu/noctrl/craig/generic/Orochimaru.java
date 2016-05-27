@@ -10,7 +10,7 @@ public class Orochimaru extends Enemy {
     private final Rect rect = new Rect(333, 270, 398, 386);
     public Orochimaru(Stage stage) {
         super(stage);
-        this.speed = 500;
+        this.speed = 60;
         this.health = 60;
         this.timeToAdd = 1;
         this.pointWorth = 15;
@@ -27,12 +27,22 @@ public class Orochimaru extends Enemy {
 
     @Override
     public void move(Point3F p) {
-
+        this.baseVelocity = p;
+        this.updateVelocity();
     }
 
     @Override
     public void fire() {
-
+        EnemyBullet eBullet = new EnemyBullet(stage);
+        eBullet.position.X = this.position.X;
+        eBullet.position.Y = this.position.Y;
+        stage.addObject(eBullet);
+        float dx = stage.player.position.X - this.position.X;
+        float dy = stage.player.position.Y - this.position.Y;
+        float h = (float) Math.sqrt((dx*dx) + (dy*dy));
+        eBullet.baseVelocity.X = dx/h;
+        eBullet.baseVelocity.Y = dy/h;
+        eBullet.updateVelocity();
     }
 
     @Override
