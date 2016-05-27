@@ -1,12 +1,14 @@
 package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
+import android.os.Handler;
 
 public class Player extends GameSprite {
 
-    static final Rect stationaryStanding = new Rect(65,397,104,450);
-    static final Rect firePose = new Rect(185,463,240,510);
+    static final Rect stationaryStanding = new Rect(65, 397, 104, 450);
+    static final Rect firePose = new Rect(185, 463, 240, 510);
     private Rect toPass;
+    protected boolean canFire = true;
 
     protected int bulletCount = 3;
     protected int health = 10;
@@ -16,7 +18,7 @@ public class Player extends GameSprite {
         this.speed = 200;
         this.substance = Collision.SolidPlayer;
         this.position.X = 128;
-        this.position.Y = theWorld.height/2;
+        this.position.Y = theWorld.height / 2;
         this.toPass = stationaryStanding;
     }
 
@@ -27,30 +29,30 @@ public class Player extends GameSprite {
 
     @Override
     public Point3F getScale() {
-        return new Point3F(1,1,1);
+        return new Point3F(1, 1, 1);
     }
 
-    protected void setFirePose()
-    {
+    protected void setFirePose() {
         this.toPass = firePose;
         getSource();
     }
 
-    protected void setStationaryStanding()
-    {
+    protected void setStationaryStanding() {
         this.toPass = stationaryStanding;
         getSource();
     }
 
-    protected void reload()
-    {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    protected void reload() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                canFire = true;
+            }
+        }, 200);
         bulletCount = 3;
     }
+
     @Override
     public void cull() {
     }

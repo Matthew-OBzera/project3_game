@@ -121,13 +121,22 @@ public class Stage2 extends Stage {
     }
 
     public void shotFired() {
-        PlayerBullet pBullet = new PlayerBullet(this);
-        pBullet.position.X = player.position.X;
-        pBullet.position.Y = player.position.Y;
-        pBullet.baseVelocity.X = 1;
-        pBullet.baseVelocity.Y = 0;
-        pBullet.updateVelocity();
-        this.shotsFired++;
-        this.addObject(pBullet);
+        if (player.bulletCount > 0 && player.canFire == true) {
+            player.setFirePose();
+            --player.bulletCount;
+            PlayerBullet pBullet = new PlayerBullet(this);
+            pBullet.position.X = player.position.X;
+            pBullet.position.Y = player.position.Y;
+            pBullet.baseVelocity.X = 1;
+            pBullet.baseVelocity.Y = 0;
+            pBullet.updateVelocity();
+            this.shotsFired++;
+            this.addObject(pBullet);
+        }
+        else
+        {
+            player.canFire = false;
+            player.reload();
+        }
     }
 }

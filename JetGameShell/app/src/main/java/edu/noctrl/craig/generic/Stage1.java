@@ -34,7 +34,7 @@ public class Stage1 extends Stage {
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
             if (v.getWidth() / 3.5 < event.getX()) {
-                if (player.bulletCount > 0) {
+                if (player.bulletCount > 0 && player.canFire) {
                     player.setFirePose();
                     --player.bulletCount;
                     this.shotsFired++;
@@ -49,6 +49,7 @@ public class Stage1 extends Stage {
                     pBullet.baseVelocity.Y = dy / h;
                     pBullet.updateVelocity();
                 } else {
+                    player.canFire = false;
                     player.reload();
                 }
             }
