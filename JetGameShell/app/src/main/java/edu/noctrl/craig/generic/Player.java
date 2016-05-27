@@ -53,6 +53,7 @@ public class Player extends GameSprite {
         bulletCount = 3;
     }
 
+
     @Override
     public void cull() {
     }
