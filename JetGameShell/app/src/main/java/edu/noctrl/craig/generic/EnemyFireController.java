@@ -1,15 +1,13 @@
 package edu.noctrl.craig.generic;
 
-import android.util.Log;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class EnemyFire extends Timer {
+public class EnemyFireController extends Timer {
 
     final private Enemy enemy;
 
-    public EnemyFire(final Enemy enemy) {
+    public EnemyFireController(final Enemy enemy) {
         this.enemy = enemy;
         this.scheduleAtFixedRate(new TimerTask() {
             @Override

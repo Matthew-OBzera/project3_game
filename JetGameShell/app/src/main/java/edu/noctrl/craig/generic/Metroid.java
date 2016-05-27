@@ -2,10 +2,10 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Rect;
 
-public class Enemy2 extends Enemy {
+public class Metroid extends Enemy {
 
     private final Rect rect = new Rect(12,300,100,379);
-    public Enemy2(Stage stage) {
+    public Metroid(Stage stage) {
         super(stage);
         this.speed = 50;
         this.health = 20;
@@ -14,11 +14,11 @@ public class Enemy2 extends Enemy {
 
         if(stage.callsForEnemyMovement)
         {
-            new EnemyMovement(this);
+            new EnemyMovementController(this);
         }
         if(stage.callsForEnemyFire)
         {
-            new EnemyFire(this);
+            new EnemyFireController(this);
         }
     }
 

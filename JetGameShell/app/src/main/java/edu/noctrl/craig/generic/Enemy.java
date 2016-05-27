@@ -27,7 +27,7 @@ public abstract class Enemy extends GameSprite {
 
     @Override
     public void collision(GameObject object) {
-        if (object instanceof Enemy3){
+        if (object instanceof Enemy){
             Point3F newVel = this.baseVelocity.mult(-1);
             //this.changeBaseVelocity(newVel);
             //GET BACK TO THIS

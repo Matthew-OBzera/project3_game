@@ -17,11 +17,11 @@ public class Orochimaru extends Enemy {
         this.substance = Collision.SolidAI;
         if(stage.callsForEnemyMovement)
         {
-            new EnemyMovement(this);
+            new EnemyMovementController(this);
         }
         if(stage.callsForEnemyFire)
         {
-            new EnemyFire(this);
+            new EnemyFireController(this);
         }
     }
 
