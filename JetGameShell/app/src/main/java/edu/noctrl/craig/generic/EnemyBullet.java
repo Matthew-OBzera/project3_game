@@ -7,7 +7,7 @@ import android.graphics.Rect;
  */
 public class EnemyBullet extends Bullet {
 
-    private final Rect rect = new Rect(118,310,182,370);
+    private final Rect rect = new Rect(199,332,234,367);
     Stage stage;
     public EnemyBullet(Stage stage) {
         super(stage);
