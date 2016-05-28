@@ -1,7 +1,10 @@
 package edu.noctrl.craig.generic;
 
+import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.deitel.cannongame.R;
 
 import java.util.Timer;
 
@@ -15,10 +18,12 @@ public abstract class Stage extends World {
     protected GameTimer gameTimer;
     protected StateListener listener;
     public Player player;
+    protected SoundManager sounds;
 
     public Stage(StateListener listener, SoundManager sounds) {
         super(listener, sounds);
         this.listener = listener;
+        this.sounds = sounds;
     }
 
     @Override
@@ -35,6 +40,7 @@ public abstract class Stage extends World {
 
     protected void recordEnemyHit(){
         hits++;
+        sounds.playSound(SoundManager.ALIEN_HIT);
     };
 
     protected abstract boolean gameWon();

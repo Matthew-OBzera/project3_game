@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.deitel.cannongame.R;
+
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +20,7 @@ public class Stage1 extends Stage {
 
     @Override
     protected void initialize() {
+        sounds.playSound(SoundManager.ROUND_ONE);
         player = new Player(this);
         this.addObject(player);
         enemiesRemaining = 10;
@@ -51,6 +54,7 @@ public class Stage1 extends Stage {
                     pBullet.baseVelocity.Y = dy / h;
                     pBullet.updateVelocity();
                 } else {
+                    sounds.playSound(SoundManager.CYBER_RELOAD);
                     player.canFire = false;
                     player.reload();
                 }
@@ -75,6 +79,7 @@ public class Stage1 extends Stage {
     @Override
     protected boolean gameWon() {
         if (enemiesRemaining == 0) {
+            sounds.playSound(SoundManager.FLAWLESS_VICTORY);
             return false;
         }
         return true;

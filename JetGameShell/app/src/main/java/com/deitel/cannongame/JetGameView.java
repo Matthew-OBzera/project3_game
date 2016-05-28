@@ -87,6 +87,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
         screenWidth = w; // store CannonView's width
         screenHeight = h; // store CannonView's height
         newGame(getHolder()); // set up and start a new game
+        soundManager.playBgMusic(SoundManager.MK_MUSIC_ONE);
     } // end method onSizeChanged
 
     // reset all the screen elements and start a new game
@@ -129,6 +130,10 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
                                 world.enemiesRemaining,//world.remaining,
                                 world.score,//world.score,
                                 world.totalElapsedTime-3.0));
+                        if(lost)
+                        {
+                            soundManager.playSound(SoundManager.YOU_SUCK);
+                        }
                         if(!lost)
                         {
                             builder.setPositiveButton(R.string.next_stage,

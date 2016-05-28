@@ -13,6 +13,7 @@ public class EnergyBullet extends EnemyBullet {
         this.collidesWith = Collision.SolidPlayer;
         this.substance = GameObject.Collision.SolidAI;
         this.speed = 550;
+
     }
 
     @Override

@@ -2,9 +2,12 @@ package edu.noctrl.craig.generic;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.deitel.cannongame.R;
 
 import java.util.Timer;
 
@@ -20,14 +23,20 @@ public class Stage2 extends Stage {
 
     @Override
     protected void initialize() {
-
+        sounds.playSound(SoundManager.ROUND_TWO);
         player = new Player(this);
         this.addObject(player);
-
         needsTimer = false;
         callsForEnemyMovement = true;
         callsForEnemyFire = true;
         enemiesRemaining = 30;
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                sounds.playSound(SoundManager.FIGHT);
+            }
+        }, 3000);
         spawnTimer = new Timer();
         spawnTimer.schedule(new Spawner(this), 3000);
         healthDisp = new PlayerHeathDisp(this, player.health);
@@ -87,6 +96,7 @@ public class Stage2 extends Stage {
             Log.i("END STAGE 2", "TEST");
             if(enemy_count <= 0)
             {
+                sounds.playSound(SoundManager.WELL_DONE);
                 listener.onGameOver(false);
                 for(int i = 0; i < objects.size(); i++)
                 {
@@ -112,6 +122,7 @@ public class Stage2 extends Stage {
             {
                 enemiesRemaining += enemy_count;
             }
+            sounds.playSound(SoundManager.YOU_SUCK);
             listener.onGameOver(true);
             for(int i = 0; i < objects.size(); i++)
             {
@@ -144,6 +155,7 @@ public class Stage2 extends Stage {
         else
         {
             player.canFire = false;
+            sounds.playSound(SoundManager.CYBER_RELOAD);
             player.reload();
         }
     }

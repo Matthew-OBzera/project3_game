@@ -34,6 +34,7 @@ public class Orochimaru extends Enemy {
         eBullet.position.X = this.position.X;
         eBullet.position.Y = this.position.Y;
         stage.addObject(eBullet);
+        stage.sounds.playSound(SoundManager.RASENSHURIKEN);
         float dx = stage.player.position.X - this.position.X;
         float dy = stage.player.position.Y - this.position.Y;
         float h = (float) Math.sqrt((dx*dx) + (dy*dy));

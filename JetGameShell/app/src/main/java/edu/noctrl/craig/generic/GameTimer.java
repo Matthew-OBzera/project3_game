@@ -8,10 +8,11 @@ import java.util.TimerTask;
 public class GameTimer extends Timer{
     protected double timeInSeconds;
     protected double timeRemaining;
+    private boolean initialStart = true;
     final Stage stage;
-
     public GameTimer(final Stage stage, double seconds)
     {
+        initialStart = true;
         this.stage = stage;
         timeInSeconds = seconds;
         timeRemaining = timeInSeconds;
@@ -19,6 +20,11 @@ public class GameTimer extends Timer{
             @Override
             public void run() {
                 //Log.i("TIMERTEST", "run: timer working" + timeRemaining);
+                if(initialStart)
+                {
+                    stage.sounds.playSound(SoundManager.FIGHT);
+                    initialStart = false;
+                }
                 timeRemaining -= 0.1;
                 if(timeRemaining <= 0)
                 {
