@@ -6,7 +6,7 @@ import android.view.View;
 import java.util.Timer;
 
 public abstract class Stage extends World {
-    protected static final float MAX_ON_ENEMIES_SCREEN = 30;
+    protected static float MAX_ON_ENEMIES_SCREEN = 30;
     public int enemy_count = 0;
     protected boolean needsTimer;
     protected boolean callsForEnemyMovement;

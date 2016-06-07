@@ -23,6 +23,7 @@ public class Spawner extends TimerTask {
                 enemy = new Metroid(stage);
             }
 
+
             int range = (stage.width - (stage.width / 3) - 64);
             enemy.position.X = (int) ((Math.random() * range) + (stage.width / 3));
             enemy.position.Y = (int) (Math.random() * (stage.height - 64));

@@ -39,7 +39,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
     private ScoresDBHelper dbHelper;
     private Activity activity; // to display Game Over dialog in GUI thread
     private boolean dialogIsDisplayed = false;
-    private int stageLvl = 1;
+    private int stageLvl = 3;
 
     // variables for the game loop and tracking statistics
     private boolean gameOver; // is the game over?

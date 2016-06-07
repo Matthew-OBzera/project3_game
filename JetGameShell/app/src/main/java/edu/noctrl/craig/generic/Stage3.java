@@ -28,7 +28,6 @@ public class Stage3 extends Stage {
         needsTimer = false;
         callsForEnemyMovement = true;
         callsForEnemyFire = false;
-        enemiesRemaining = 30;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -40,6 +39,10 @@ public class Stage3 extends Stage {
         spawnTimer.schedule(new Spawner(this), 3000);
         healthDisp = new PlayerHeathDisp(this, player.health);
         this.addObject(healthDisp);
+        MAX_ON_ENEMIES_SCREEN = 1000;
+        enemiesRemaining = 0;
+        enemy_count = 0;
+
     }
 
     @Override
@@ -103,7 +106,7 @@ public class Stage3 extends Stage {
             //account for that remaining they had to kill
             if(enemiesRemaining == 0)
             {
-                enemiesRemaining += enemy_count;
+                //enemiesRemaining += enemy_count;
             }
             sounds.playSound(SoundManager.YOU_SUCK);
             listener.onGameOver(true);
@@ -132,7 +135,7 @@ public class Stage3 extends Stage {
             //account for that remaining they had to kill
             if(enemiesRemaining == 0)
             {
-                enemiesRemaining += enemy_count;
+                //enemiesRemaining += enemy_count;
             }
             sounds.playSound(SoundManager.YOU_SUCK);
             listener.onGameOver(true);
