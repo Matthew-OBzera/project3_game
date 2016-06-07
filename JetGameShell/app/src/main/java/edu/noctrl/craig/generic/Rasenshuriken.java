@@ -10,8 +10,6 @@ public class Rasenshuriken extends EnemyBullet {
         super(stage);
         damage = 2;
         this.penetration = 1;
-        this.collidesWith = Collision.SolidPlayer;
-        this.substance = GameObject.Collision.SolidAI;
         this.speed = 700;
     }
 

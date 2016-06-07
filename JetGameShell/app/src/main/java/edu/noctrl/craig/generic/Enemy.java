@@ -42,6 +42,9 @@ public abstract class Enemy extends GameSprite {
                 this.kill();
                 stage.recordEnemyKilled(this);
             }
+        }else if(object instanceof Player){
+            this.kill();
+            stage.recordPlayerHit(this);
         }
     }
 

@@ -11,10 +11,10 @@ public class Orochimaru extends Enemy {
         this.health = 60;
         this.timeToAdd = 1;
         this.pointWorth = 15;
-        this.substance = Collision.SolidAI;
+
         if(stage.callsForEnemyMovement)
         {
-            new EnemyMovementController(this);
+            new EnemyMovementController(this, stage);
         }
         if(stage.callsForEnemyFire)
         {

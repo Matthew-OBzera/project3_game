@@ -8,6 +8,8 @@ public abstract class EnemyBullet extends Bullet {
     public EnemyBullet(Stage stage) {
         super(stage);
         this.stage = stage;
+        this.collidesWith = Collision.SolidPlayer;
+        this.substance = GameObject.Collision.SolidAI;
     }
 
 

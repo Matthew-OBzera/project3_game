@@ -14,7 +14,7 @@ public class Metroid extends Enemy {
 
         if(stage.callsForEnemyMovement)
         {
-            new EnemyMovementController(this);
+            new EnemyMovementController(this, stage);
         }
         if(stage.callsForEnemyFire)
         {

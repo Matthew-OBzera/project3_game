@@ -17,6 +17,7 @@ public class Player extends GameSprite {
         super(theWorld);
         this.speed = 200;
         this.substance = Collision.SolidPlayer;
+        this.collidesWith = Collision.SolidAI;
         this.position.X = 128;
         this.position.Y = theWorld.height / 2;
         this.toPass = stationaryStanding;

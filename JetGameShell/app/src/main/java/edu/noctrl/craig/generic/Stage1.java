@@ -5,8 +5,6 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.deitel.cannongame.R;
-
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
@@ -73,6 +71,11 @@ public class Stage1 extends Stage {
 
     @Override
     protected void recordPlayerHit(Bullet eBullet) {
+        //not implemented in stage 1
+    }
+
+    @Override
+    protected void recordPlayerHit(Enemy e) {
         //not implemented in stage 1
     }
 

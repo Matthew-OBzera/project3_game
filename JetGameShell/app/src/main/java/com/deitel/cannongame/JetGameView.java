@@ -24,6 +24,7 @@ import edu.noctrl.craig.generic.GameSprite;
 import edu.noctrl.craig.generic.SoundManager;
 import edu.noctrl.craig.generic.Stage1;
 import edu.noctrl.craig.generic.Stage2;
+import edu.noctrl.craig.generic.Stage3;
 import edu.noctrl.craig.generic.World;
 
 public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, World.StateListener {
@@ -100,6 +101,7 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
             {
                 case 1:world = new Stage1(this, soundManager); break;
                 case 2: world = new Stage2(this, soundManager); break;
+                case 3: world = new Stage3(this, soundManager); break;
                 default: world = new Stage1(this,  soundManager); stageLvl = 1; break;
             }
             world.updateSize(screenWidth, screenHeight);
