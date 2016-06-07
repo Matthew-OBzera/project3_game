@@ -10,8 +10,6 @@ public class EnergyBullet extends EnemyBullet {
         super(stage);
         damage = 1;
         this.penetration = 1;
-        this.collidesWith = Collision.SolidPlayer;
-        this.substance = GameObject.Collision.SolidAI;
         this.speed = 550;
 
     }

@@ -1,10 +1,7 @@
 package edu.noctrl.craig.generic;
 
-import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.deitel.cannongame.R;
 
 import java.util.Timer;
 
@@ -35,6 +32,8 @@ public abstract class Stage extends World {
     public abstract boolean onTouch(View v, MotionEvent event);
 
     protected abstract void recordPlayerHit(Bullet eBullet);
+
+    protected abstract void recordPlayerHit(Enemy e);
 
     protected abstract void recordEnemyKilled(Enemy enemy);
 

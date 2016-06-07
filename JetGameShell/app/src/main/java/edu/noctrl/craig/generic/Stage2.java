@@ -7,8 +7,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.deitel.cannongame.R;
-
 import java.util.Timer;
 
 public class Stage2 extends Stage {
@@ -132,6 +130,11 @@ public class Stage2 extends Stage {
                 }
             }
         }
+    }
+
+    @Override
+    protected void recordPlayerHit(Enemy e) {
+        //not implemented in stage 2
     }
 
     @Override
