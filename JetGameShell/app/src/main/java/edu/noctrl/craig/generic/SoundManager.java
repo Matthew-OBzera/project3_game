@@ -76,17 +76,21 @@ public class SoundManager {
 		ROUND_THREE = soundPool.load(context, R.raw.round_three, 99);
 		WELL_DONE = soundPool.load(context, R.raw.well_done, 99);
 		YOU_SUCK = soundPool.load(context, R.raw.you_suck, 99);
-		RASENSHURIKEN = soundPool.load(context, R.raw.rasenshuriken, -1);
+		RASENSHURIKEN = soundPool.load(context, R.raw.rasenshuriken, 98);
+
 	}
 
-	public void playBgMusic(int sound)
+	public void playBgMusic()
 	{
-		soundPool.play(sound, 1, 1, 1, -1, 1f);
+		mediaPlayer = MediaPlayer.create(context, R.raw.mk_music_one);
+		mediaPlayer.setLooping(true);
+		mediaPlayer.start();
+
 	}
 
-	public  void stopBgMusic(int sound)
+	public  void stopBgMusic()
 	{
-		soundPool.stop(sound);
+		mediaPlayer.stop();
 	}
 
 	public void playSound(int sound){

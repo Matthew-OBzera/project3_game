@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.deitel.cannongame.R;
+
 import java.util.ArrayList;
 
 /**
@@ -55,6 +57,7 @@ public class World implements View.OnTouchListener {
     }
 
     protected void initialize(){
+
 
     }
 

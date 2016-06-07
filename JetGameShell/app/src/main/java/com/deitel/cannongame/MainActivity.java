@@ -5,6 +5,16 @@ package com.deitel.cannongame;
 import android.app.Activity;
 import android.os.Bundle;
 
+/**
+  _____                    _  _       _     ___  _
+ |_   _|___  __ _  _ __   | \| | ___ | |_  / __|| |_   ___  _ _  ___
+   | | / -_)/ _` || '  \  | .` |/ _ \|  _| \__ \| ' \ / _ \| '_|/ -_)
+   |_| \___|\__,_||_|_|_| |_|\_|\___/ \__| |___/|_||_|\___/|_|  \___|
+
+ Matt, GP, Justin, Kyle
+
+ */
+
 public class MainActivity extends Activity {
     // called when the app first launches
     @Override

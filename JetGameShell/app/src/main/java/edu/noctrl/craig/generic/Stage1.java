@@ -18,7 +18,6 @@ public class Stage1 extends Stage {
 
     @Override
     protected void initialize() {
-        sounds.playSound(SoundManager.ROUND_ONE);
         player = new Player(this);
         this.addObject(player);
         enemiesRemaining = 10;

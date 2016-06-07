@@ -21,6 +21,7 @@ public abstract class Stage extends World {
         super(listener, sounds);
         this.listener = listener;
         this.sounds = sounds;
+        this.sounds.playBgMusic();
     }
 
     @Override
