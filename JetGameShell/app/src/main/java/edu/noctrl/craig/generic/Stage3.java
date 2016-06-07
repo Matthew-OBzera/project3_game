@@ -176,7 +176,7 @@ public class Stage3 extends Stage {
     @Override
     public void draw(Canvas canvas){
         if(canvas!=null){
-            canvas.drawBitmap(GameSprite.SPRITE_SOURCE, new Rect(525, 727, 986,919), new Rect(0,0, this.width, this.height), null);
+            canvas.drawBitmap(GameSprite.SPRITE_SOURCE, new Rect(9, 728, 518,920), new Rect(0,0, this.width, this.height), null);
             for(GameObject obj : objects){
                 obj.draw(canvas);
             }
