@@ -1,6 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title=""
+
+    <item android:id="@+id/action_stage_slection" android:title="@string/stage_selection"
         android:orderInCategory="100" android:showAsAction="never" />
 
+    <item android:id="@+id/action_local_hi_scores" android:title="@string/local_hi_scores"
+        android:orderInCategory="200" android:showAsAction="never" />
+
+    <item android:id="@+id/action_gloabl_hi_scores" android:title="@string/global_hi_scores"
+        android:orderInCategory="300" android:showAsAction="never" />
+
+    <item android:id="@+id/action_about" android:title="@string/about"
+        android:orderInCategory="400" android:showAsAction="never" />
 </menu>

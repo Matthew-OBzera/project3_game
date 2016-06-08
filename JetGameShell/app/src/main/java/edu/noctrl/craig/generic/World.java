@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.deitel.cannongame.JetGameFragment;
+import com.deitel.cannongame.JetGameView;
 import com.deitel.cannongame.R;
 
 import java.util.ArrayList;
@@ -78,7 +80,6 @@ public class World implements View.OnTouchListener {
         for(GameObject obj : objects){
             obj.update(interval);
         }
-
     }
     public void draw(Canvas canvas){
         if(canvas!=null){

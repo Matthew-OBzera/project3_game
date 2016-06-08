@@ -8,5 +8,8 @@
     <string name="win">You win!</string>
     <string name="lose">Game Over!</string>
     <string name="time_remaining_format">Time remaining: %.1f seconds</string>
-
+    <string name="stage_selection">Stage Selection</string>
+    <string name="local_hi_scores">Local High Scores</string>
+    <string name="global_hi_scores">Global High Scores</string>
+    <string name="about">About</string>
 </resources>

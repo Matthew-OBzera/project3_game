@@ -39,13 +39,16 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
     private ScoresDBHelper dbHelper;
     private Activity activity; // to display Game Over dialog in GUI thread
     private boolean dialogIsDisplayed = false;
-    private int stageLvl = 1;
+    private static int stageLvl = 1;
+    public static boolean stageMenuItemSelected = false;
 
     // variables for the game loop and tracking statistics
     private boolean gameOver; // is the game over?
 
     private int screenWidth;
     private int screenHeight;
+
+
 
     //http://stackoverflow.com/questions/18973550/load-images-from-assets-folder
     private Bitmap getBitmapFromAsset(String strName)
@@ -230,5 +233,10 @@ public class JetGameView extends SurfaceView implements SurfaceHolder.Callback, 
         gameThread.stopGame(); // terminate thread
         soundManager.stopBgMusic();
         showGameOverDialog(lost); // show the losing dialog
+    }
+
+    public static void setStageLvl(int stage)
+    {
+        stageLvl = stage;
     }
 }
